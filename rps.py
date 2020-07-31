@@ -1,4 +1,3 @@
-
 import random
 import sys
 import pyttsx3
@@ -28,6 +27,7 @@ speak('Hello '+ name + ' , nice to meet you')
 
 speak('Are you sure you are going to play the rock paper scissors game ?')
 confirm = input('Are you sure you are going to play the rock paper scissors game ? -->')
+confirm.lower()
 
 if 'yes' in confirm:
 	speak('you can proceed !')
@@ -39,16 +39,17 @@ else:
 
 print('These are the set of rules to play the game :-')
 print('! - The player will be plaing with the computer')
-print('! - The player will get 3 chances to play with the computer')
-print('! - The player or the computer will win if they score more points than each other in the 3 chances')
-print('! - The player needs to type in all the game objects such as rock paper and scissors in lower case letters')
+print('! - The player or the computer wins if they defeat each other')
+print('! - The player does not need to write all the letters in lower case letters')
+print('! - The computer also has a life')
 speak('These are the set of rules to play the game :-')
 speak('! - The player will be plaing with the computer')
-speak('! - The player will get 3 chances to play with the computer')
-speak('! - The player or the computer will win if they score more points than each other in the 3 chances')
-speak('! - The player needs to type in all the game objects such as rock paper and scissors in lower case letters')
+speak('! - The player does not need to write all the letters in lower case letters if they wish to')
+speak('! - The computer also has a life')
+speak('! - The player or the computer wins if they defeat each other')
 speak('please enter yes or no to begin the game')
 game_enter = input('please enter yes / No to begin -->')
+game_enter.lower()
 
 if 'yes' in game_enter:
 	speak('have fun playing')
@@ -69,6 +70,8 @@ while Honesty:
     
     speak('Choose your decision, rock, paper, scissors')
     desicion = input('Rock, Paper, Scissors --> ')
+    desicion.lower()
+
     computer = random.choice(['rock', 'paper', 'scissors'])
    
     speak(computer)
@@ -79,6 +82,8 @@ while Honesty:
         speak('it is a draw')
         print('it is a draw')
         ask_draw = input('Do you want to retry say y / n -->')
+        ask_draw.lower()
+
         if ask_draw == 'y':
         	continue
         else:
@@ -87,20 +92,15 @@ while Honesty:
     if desicion == 'rock' and computer == 'paper' or desicion == 'paper' and computer == 'scissors' or desicion == 'scissors' and computer == 'rock':
         speak('yeah ! I win')
         print('yeah ! I win')  
-        ask_computer = input('Do you want to retry say y / n -->')
-        speak('do you want to retry ?')
-
-        # ask the computer to give y or n as a random deployment !
-        if ask_computer == 'y':
-        	continue
-        else:
-        	break             
     
     if computer == 'rock' and desicion == 'paper' or computer == 'paper' and desicion == 'scissors' or computer == 'scissors' and desicion == 'rock':
         speak(name + ' ,you defeated the computer')
         print(name + ' ,you defeated the computer')
-        ask_user = input('Do you want to retry say y / n -->') 
+
         speak('do you want to retry ?')
+        ask_user = input('Do you want to retry say y / n -->') 
+        ask_user.lower()
+        
         if ask_user == 'y':
         	continue
         else:
